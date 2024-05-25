@@ -17,21 +17,41 @@ probabilities = [
     [0.01, 0.01, 0.07, 2.34, 97.57] 
 ]
 
+def list_sum(list): 
+    sum = 0
+    for i in list:
+        sum+=i
+    return sum
+
+def print_2d_array(arr): 
+    for i in arr: 
+        print(i)
+
+prob_counter = []
+
+for i in range(len(probabilities)): 
+    prob_counter.append([])
+    for j in range(len(probabilities[i])):
+        try:
+            prob_counter[i].append(probabilities[i] + prob_counter[i][j-1])
+        except: 
+            prob_counter[i].append(probabilities[i])
+
+print_2d_array(prob_counter)
 
 def getRollSelection(probs): 
     selection = rand.randint(1, 1400)
     print(selection)
-    selection
+
     return selection_index
 
-
-print(probabilities)
+# print(probabilities)
 
 for arr in probabilities: 
     sum = 0
     for i in arr: 
         sum += i
-    print(str(sum) + str(round(sum)))
+    # print(str(sum) + str(round(sum)))
 
 for i in range(len(probabilities)): 
     for j in range(len(probabilities[i])): 
@@ -41,4 +61,4 @@ for arr in probabilities:
     sum = 0
     for i in arr: 
         sum += i
-    print(str(sum) + "  " + str(round(sum, -4)))
+    # print(str(sum) + "  " + str(round(sum, -4)))
