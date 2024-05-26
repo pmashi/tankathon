@@ -1,0 +1,14 @@
+Team1: 126 times
+Team2: 162 times
+Team3: 132 times
+Team4: 129 times
+Team5: 96 times
+Team6: 102 times
+Team7: 78 times
+Team8: 46 times
+Team9: 42 times
+Team10: 34 times
+Team11: 18 times
+Team12: 18 times
+Team13: 14 times
+Team14: 3 times
