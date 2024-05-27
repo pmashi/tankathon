@@ -31,25 +31,52 @@ def nba_lottery_simulation():
         if pick not in top_4_picks:
             top_4_picks.append(pick)
     
-    return top_4_picks[0]  
+    return top_4_picks 
 
 def run_simulations(n):
     first_picks = []
+    second_picks = []
+    third_picks = []
+    fourth_picks = []
     for _ in range(n):
-        first_pick = nba_lottery_simulation()
-        first_picks.append(first_pick)
+        picks = nba_lottery_simulation()
+        first_picks.append(picks[0])
+        second_picks.append(picks[1])
+        third_picks.append(picks[2])
+        fourth_picks.append(picks[3])
     
-    return first_picks
+    return first_picks, second_picks, third_picks, fourth_picks
 
 num_simulations = 1000
-first_picks = run_simulations(num_simulations)
+first_picks, second_picks, third_picks, fourth_picks = run_simulations(num_simulations)
 
-# Count the frequency of each team getting the first pick
-pick_counter = Counter(first_picks)
+# Count the frequency of each team getting the a specific pick
+pick_counter1 = Counter(first_picks)
+pick_counter2 = Counter(second_picks)
+pick_counter3 = Counter(third_picks)
+pick_counter4 = Counter(fourth_picks)
 
 print("First Pick Frequency after 1000 Simulations:")
 with open('nba_lottery_first_picks.txt', 'w') as file:
-    for team, count in pick_counter.items():
+    for team, count in pick_counter1.items():
+        result = f"{team}: {count} times"
+        print(result)
+        file.write(result + '\n')
+
+with open('nba_lottery_second_picks.txt', 'w') as file:
+    for team, count in pick_counter2.items():
+        result = f"{team}: {count} times"
+        print(result)
+        file.write(result + '\n')
+
+with open('nba_lottery_third_picks.txt', 'w') as file:
+    for team, count in pick_counter3.items():
+        result = f"{team}: {count} times"
+        print(result)
+        file.write(result + '\n')
+
+with open('nba_lottery_fourth_picks.txt', 'w') as file:
+    for team, count in pick_counter4.items():
         result = f"{team}: {count} times"
         print(result)
         file.write(result + '\n')
