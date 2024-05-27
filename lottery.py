@@ -47,7 +47,7 @@ def run_simulations(n):
     
     return first_picks, second_picks, third_picks, fourth_picks
 
-num_simulations = 1000
+num_simulations = 35
 first_picks, second_picks, third_picks, fourth_picks = run_simulations(num_simulations)
 
 # Count the frequency of each team getting the a specific pick
@@ -56,27 +56,33 @@ pick_counter2 = Counter(second_picks)
 pick_counter3 = Counter(third_picks)
 pick_counter4 = Counter(fourth_picks)
 
+ordered_teams = [f'Team{i}' for i in range(1, 15)]
+
 print("First Pick Frequency after 1000 Simulations:")
 with open('nba_lottery_first_picks.txt', 'w') as file:
-    for team, count in pick_counter1.items():
+    for team in ordered_teams:
+        count = pick_counter1[team]
         result = f"{team}: {count} times"
         print(result)
         file.write(result + '\n')
 
 with open('nba_lottery_second_picks.txt', 'w') as file:
-    for team, count in pick_counter2.items():
+    for team in ordered_teams:
+        count = pick_counter2[team]
         result = f"{team}: {count} times"
         print(result)
         file.write(result + '\n')
 
 with open('nba_lottery_third_picks.txt', 'w') as file:
-    for team, count in pick_counter3.items():
+    for team in ordered_teams:
+        count = pick_counter3[team]
         result = f"{team}: {count} times"
         print(result)
         file.write(result + '\n')
 
 with open('nba_lottery_fourth_picks.txt', 'w') as file:
-    for team, count in pick_counter4.items():
+    for team in ordered_teams:
+        count = pick_counter4[team]
         result = f"{team}: {count} times"
         print(result)
         file.write(result + '\n')
